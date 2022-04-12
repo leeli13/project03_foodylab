@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.ycircle, .gcircle, .ocircle, .bcircle, .pcircle{ transition: 0.5s; }
+.ycircle{ transform: translate(0, 100px); }
+.gcircle{ transform: translate(-100px, 100px);}
+.ocircle{ transform: translate(-100px, 50px);}
+.bcircle{ transform: translate(50px, -50px);}
+.pcircle{ transform: translate(10px, -50px);}
+a:hover .ycircle, a:hover .gcircle, a:hover .ocircle, a:hover .bcircle, a:hover .pcircle { transform: translate(0, 0); }

@@ -1,0 +1,300 @@
+@charset "utf-8";
+
+@import url(font.css);
+@import url(layout.css);
+
+/* base */
+*{ padding: 0; margin: 0; font-family: 'Poppins', 'Noto Sans KR', "맑은 고딕", "Apple SD Gothic Neo", sans-serif; color: #101010; font-weight: 400; }
+li{ list-style: none; }
+a{ text-decoration: none; }
+img{ border: none; }
+button{ cursor: pointer; }
+
+
+/* =========================공통작업========================= */
+    /* inner_wrap */
+    .inner_wrap{ 
+		width: 1440px; 
+		max-width: 100%;
+		margin: 0 auto; 
+	}
+
+   /* popup */
+   .popup{ display: none; position: fixed; right: 0; top: 0; z-index: 5000; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);}
+   .popup_wrap{ position: absolute; top: 0; bottom: 0; right: 0; left: 0; margin: auto; width: 450px; height: 500px; padding: 40px; box-sizing: border-box; border-radius: 15px; background-color: #FFECBC; background-image: url(../images/common/panel_bg.svg); background-repeat: no-repeat; background-position: right bottom; text-align: center; }
+   .popup h2{ font-size: 1.625rem; margin-bottom: 20px; }
+   .popup .close_btn{ position: absolute; top: 20px; right: 20px; display: block; width: 42px; height: 42px; border-radius: 21px; background-color: #FFD361; background-image: url(../images/common/popup_close_btn.svg); background-repeat: no-repeat; background-position: center; text-indent: -999em; }
+   .popup .today_close{ display: block; width: 160px; height: 60px; margin: 35px auto 0; background-color: #FFAF96; border-radius: 10px; line-height: 60px; color: #fff; }
+   .popup input{ position: absolute; left: -999em; }
+
+    
+    /* header - tnav */
+    header{ position: fixed; top: 0; left: 0; z-index: 200; background-color: #fff; }
+    .t_nav{ position: absolute; left: 85%; padding-top: 30px; z-index: 700; box-sizing: border-box;}
+    .t_nav ul{ display: flex; justify-content: flex-end; }
+    .t_nav li{ margin-right: 20px; }
+
+    /* panel_icon */
+    .panel_icon{ width: 30px; height: 30px; }
+    .panel_icon a{ display: block; width: 100%; height: 100%; margin-top: 5px; transition: 0.3s; }
+	.panel_icon span{ display: block; width: 100%; height: 2px; background-color: #101010; transition: 0.3s; }
+	.panel_icon .line01{ position: relative; top: -3px; }
+	.panel_icon .line02{ position: relative; top: 7px; }
+	.panel_icon .line03{ position: relative; top: 17px; }
+
+    /* panel_icon active */
+	.panel_icon a.active .line02{ transform: scaleX(0); }
+	.panel_icon a.active .line01{ top: 7px; transform: rotate(45deg); transition-delay: 0.3s; }
+	.panel_icon a.active .line03{ top: 3px; transform: rotate(-45deg); transition-delay: 0.3s; }
+
+    /* panel */
+    .panel .panel_gnb{ position: fixed; top: 0; right: -40%; z-index: 600; width: 40%; height: 100%; padding: 5% 7%; box-sizing: border-box; background-color: #FFECBC; background-image: url(../images/common/panel_bg.svg); background-repeat: no-repeat; background-position: right bottom; transition: 0.6s; }
+    .panel .pmain_nav{ display: block; font-size: 1.5625rem; font-weight: 500; margin-bottom: 3%; }
+    .panel_gnb > ul > li{ margin-bottom: 5%; }
+    .psub_nav > li{ margin-bottom: 2%; padding-left: 2%; box-sizing: border-box; }
+    .panelbg{ display: none; position: fixed; top: 0; left: 0; z-index: 500; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); transition: 0.3s; }
+    .panel .panel_gnb.active{ right: 0; }
+
+
+
+
+    /* footer */
+    footer{ background-color: #FFD361; padding: 80px 40px 95px; box-sizing: border-box; }
+    footer::after{ content: ''; clear: both; display: block;}
+    footer .f_top ul{ display: flex; margin-bottom: 45px; }
+    footer .f_top li{ margin-right: 40px; }
+    footer .inner_wrap{ position: relative; }
+    footer .sns{ position: absolute; right: 0; bottom: 80px; }
+    footer .sns ul{ display: flex; justify-content: flex-end; align-items: center; }
+    footer .sns li{ margin-right: 20px; }
+    footer img{ width: 100%; }
+    footer hr, footer .copy{ clear: both;}
+    footer hr{ margin-bottom: 10px; height: 0.1px; background-color: #5C5C5C; border: 0; }
+    .f_bottom .mobile{ display: none; }
+    .f_bottom .pc_none{ display: none; }
+/* =========================공통작업========================= */
+
+
+
+
+
+
+
+/* =========================desktop========================= */
+@media screen and (min-width: 1024px) {
+    *{ font-size: 16px; }
+
+
+    /* footer */
+    .f_top li a{ font-size: 1.25rem; font-weight: 500; }
+    .f_bottom p{ line-height: 2rem; margin-bottom: 50px; }
+
+    /* header - gnb */
+    header{ display: flex; justify-content: center; width: 100%; height: 95px; padding: 0 5%; box-sizing: border-box; }
+    .gnb{ width: 50%;}
+    .gnb > ul{ position: relative; display: flex; justify-content: center; max-width: 100%; height: 95px; text-align: center; }
+    .gnb > ul > li{ position: relative; height: 100%; }
+    .main_nav{ display: block; height: 100%; padding: 30px 40px; box-sizing: border-box; font-size: 1.0625rem; line-height: 40px; }
+    .gnb .sub_nav{ display: none; position: absolute; left: 0; top: 95px; z-index: 500; width: 100%; padding: 25px 0; background-color: #fff; }
+    .gnb > ul > li:hover .main_nav{ font-weight: 700; }
+    .sub_nav li{ margin-bottom: 20px;}
+    .sub_nav li:last-child{ margin-bottom: 0;}
+    .sub_nav li a{ font-size: 0.9375rem; }
+    .sub_nav li:hover a{ font-weight: 500; }
+
+    /* header-logo */
+    header h1{ position: absolute; right: 83%; height: 95px; padding-top: 6px; box-sizing: border-box;}
+    header h1 a{ display: block; width: 160px; height: 100%; text-indent: -999em;background-image: url(../images/common/header_logo.png); background-repeat: no-repeat; background-position: top left; }
+
+
+}
+
+/* =========================desktop========================= */
+
+
+
+
+
+/* =========================large desktop========================= */
+@media screen and (min-width: 1440px) {
+    *{ font-size: 16px; }
+}
+/* =========================large desktop========================= */
+
+
+
+
+/* =========================1180========================= */
+@media screen and (max-width: 1180px) {
+    *{ font-size: 16px; }
+
+
+    /* header - gnb */
+    header{ display: flex; justify-content: center; width: 100%; height: 150px; padding: 0 5%; box-sizing: border-box; }
+    .gnb{ width: 50%;}
+    .gnb > ul{ position: relative; top: 55px; display: flex; justify-content: center; max-width: 100%; height: 95px; text-align: center; }
+    .gnb > ul > li{ position: relative; height: 100%; }
+    .main_nav{ display: block; height: 100%; padding: 30px 40px; box-sizing: border-box; font-size: 1.0625rem; line-height: 40px; }
+    .gnb .sub_nav{ display: none; position: absolute; left: 0; top: 95px; z-index: 500; width: 100%; padding: 25px 0; background-color: #fff; }
+    .gnb > ul > li:hover .main_nav{ font-weight: 700; }
+    .sub_nav li{ margin-bottom: 20px;}
+    .sub_nav li:last-child{ margin-bottom: 0;}
+    .sub_nav li a{ font-size: 0.9375rem; }
+    .sub_nav li:hover a{ font-weight: 500; }
+
+    .t_nav{ left: 80%; padding-top: 30px; z-index: 700; box-sizing: border-box;}
+
+    .panel .panel_gnb{ padding: 10% 7%; }
+
+
+    /* header-logo */
+    header h1{ position: absolute; right: calc(50% - 20px); height: 95px; padding-top: 15px; box-sizing: border-box;}
+    header h1 a{ display: block; width: 110px; height: 100%; text-indent: -999em;background-image: url(../images/common/header_logo.png); background-repeat: no-repeat; background-position: top left; background-size: 110px; }
+
+
+}
+
+/* =========================1180========================= */
+
+
+
+
+
+/* =========================tablet========================= */
+@media screen and (max-width: 1023px){
+    *{ font-size: 16px; }
+
+    /* header */
+    header{ display: flex; justify-content: center; width: 100%; height: 95px; padding: 0 5%; box-sizing: border-box; }
+    .gnb{ display: none; }
+
+    /* header-logo */
+    header h1{ position: absolute; right: calc(100% - 210px); height: 95px; padding-top: 10px; box-sizing: border-box;}
+    header h1 a{ display: block; width: 160px; height: 100%; text-indent: -999em;background-image: url(../images/common/header_logo.png); background-repeat: no-repeat; background-position: top left; background-size: 140px; }
+
+    .t_nav{ left: calc(100% - 180px); padding-top: 30px; z-index: 700; box-sizing: border-box;}
+
+
+    /* header - panel */
+    .psub_nav{ display: none; }
+
+    /* footer */
+    .f_top li a{ font-size: 1.125rem; font-weight: 500; }
+    .f_bottom p{ font-size: 0.875rem; line-height: 1.5rem; margin-bottom: 50px; }
+    footer .sns li{ margin-right: 10px; }
+    footer img{ width: 90%; }
+
+
+}
+/* =========================tablet========================= */
+
+
+
+
+
+
+/* =========================mobile========================= */
+@media screen and (max-width: 767px){
+    *{ font-size: 14px; }
+
+   /* popup */
+   .popup .pc_none{ display: none; }
+   .popup_wrap{ width: 300px; height: 300px; padding: 50px 0; background-size: 90%; }
+   .popup h2{ font-size: 1.35rem; margin-bottom: 10px; }
+   .popup p{ font-size: 0.875rem; }
+   .popup .close_btn{ top: 25px; display: block; width: 30px; height: 30px; border-radius: 21px; }
+   .popup .today_close{ width: 140px; height: 45px; margin: 20px auto 0; line-height: 45px; }
+
+    /* header */
+    header{ height: 70px; }
+    header h1{ right: calc(100% - 160px); height: 70px; padding-top: 8px; box-sizing: border-box;}
+    header h1 a{ width: 110px; background-size: 110px; }
+
+    /* header-tnav */
+    .t_nav{ left: calc(100% - 170px); padding-top: 20px; }
+
+    /* panel */
+    .panel .panel_gnb{ right: -100%; width: 100%; padding: 15%; }
+    
+    footer{ padding: 80px 20px 95px; }
+    footer .sns{ display: none; }
+    footer .f_top li{ margin-right: 10px; }
+    .f_top li a{ font-size: 1.15em; }
+    .f_bottom p{ font-size: 1rem; line-height: 2rem; margin-bottom: 50px; }
+    .f_bottom .mobile{ display: block; }
+    .f_bottom .pc_none{ display: block; }
+}
+/* =========================mobile========================= */
+
+
+
+/* =========================mobile - 530px========================= */
+@media screen and (max-width: 530px){
+    /* header */
+    header h1{ right: calc(100% - 130px); padding-top: 5px; }
+    header h1 a{ width: 100px; background-size: 100px; }
+
+    /* header-tnav */
+    .t_nav{ left: calc(100% - 130px); padding-top: 20px; }
+    .t_nav ul li{ margin-right: 13px; }
+    .t_nav img{ width: 80%; }
+
+    /* panel */
+    .panel .panel_gnb{ padding: 20%; }
+
+    /* panel_icon */
+    .panel_icon{ width: 27px; }
+    .panel_icon .line01{ top: -2px; }
+    .panel_icon .line02{ top: 5px; }
+    .panel_icon .line03{ top: 12px; }
+
+}
+/* =========================mobile - 520px========================= */
+
+
+
+
+/* =========================iphone6========================= */
+@media screen and (max-width: 375px){
+    *{ font-size: 14px; }
+
+    /* panel */
+    .panel .panel_gnb{ padding: 25% 20%; }
+
+    /* footer */
+    footer{ padding: 70px 15px 60px;}
+    footer .f_top li a{ font-size: 4.3vw; }
+    footer .copy{ font-size: 3.5vw;}
+    .f_bottom p{ font-size: 3.8vw; }
+}
+
+/* =========================iphone6========================= */
+
+
+
+
+/* =========================iphone5 & se========================= */
+@media screen and (max-width: 320px){
+    *{ font-size: 12px; }
+
+    /* popup */
+    .popup_wrap{ width: 250px; height: 300px; padding: 50px 0; background-size: 90%; }
+
+
+}
+/* =========================iphone5 & se========================= */
+
+
+
+
+
+
+
+/* =========================gallaxy fold========================= */
+@media screen and (max-width: 280px){
+    *{ font-size: 12px; }
+
+    /* footer */
+    footer .f_top li:last-child{ display: none; }
+}
+/* =========================gallaxy fold========================= */
